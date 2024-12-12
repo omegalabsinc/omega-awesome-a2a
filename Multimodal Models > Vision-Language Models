@@ -1,0 +1,37 @@
+# Adding InstructBLIP: A Breakthrough in General-Purpose Vision-Language Models
+
+## Description
+Adding InstructBLIP, a pioneering framework that advances general-purpose vision-language models through comprehensive instruction tuning, demonstrating exceptional zero-shot generalization capabilities.
+
+## Resource Details
+
+### InstructBLIP: Towards General-Purpose Vision-Language Models with Instruction Tuning
+
+**Type:** Research Paper + Implementation
+**Paper:** https://arxiv.org/abs/2305.06500
+**Code:** https://github.com/salesforce/LAVIS/tree/main/projects/instructblip
+
+**Original Analysis:**
+InstructBLIP represents a significant milestone in multimodal AI by introducing a comprehensive instruction tuning framework that transforms pretrained BLIP-2 models into highly adaptable vision-language systems. What sets it apart is its systematic approach using 26 diverse datasets (13 for training, 13 for testing) and its novel instruction-aware Query Transformer that dynamically extracts features based on given instructions.
+
+**Technical Innovation & Importance:**
+1. First systematic study of vision-language instruction tuning at scale
+2. Introduces instruction-aware Query Transformer for context-specific feature extraction
+3. Achieves SOTA zero-shot performance across 13 unseen datasets
+4. Demonstrates superior performance in downstream task fine-tuning (e.g., 90.7% accuracy on ScienceQA)
+
+**Implementation Details:**
+```python
+from lavis.models import load_model_and_preprocess
+
+# Load InstructBLIP model
+model, vis_processors, txt_processors = load_model_and_preprocess(
+    name="blip2_vicuna_instruct",
+    model_type="vicuna7b",
+    is_eval=True
+)
+
+# Process inputs
+image = vis_processors["eval"](raw_image).unsqueeze(0)
+instruction = "Analyze this image and explain the main elements you observe."
+outputs = model.generate({"image": image, "prompt": instruction})
