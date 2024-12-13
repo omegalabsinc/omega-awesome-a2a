@@ -1,0 +1,44 @@
+# Content Consistent Super-Resolution (CCSR): Hybrid DM-GAN Approach
+
+## Paper Information
+- **Title**: Content Consistent Super-Resolution using Hybrid Diffusion-GAN Architecture
+- **Link**: [arXiv Paper](https://github.com/csslc/CCSR)
+- **Code**: [Official Implementation](https://github.com/csslc/CCSR)
+- **Release Date**: 2024
+
+## Technical Innovation
+CCSR introduces a novel two-stage approach for image super-resolution that combines the strengths of both Diffusion Models (DMs) and GANs:
+
+1. **Structure Reconstruction Stage (DM)**:
+   - Implements non-uniform timestep sampling
+   - Uses single timestep for coarse information extraction
+   - Applies minimal reverse steps for main structure reconstruction
+
+2. **Detail Enhancement Stage (GAN)**:
+   - Finetunes VAE decoder through adversarial training
+   - Provides deterministic detail enhancement
+   - Maintains computational efficiency
+
+## Implementation Details
+```python
+# Two-stage super-resolution pipeline
+class CCSR:
+    def __init__(self, diffusion_model, gan_decoder):
+        self.diffusion = diffusion_model
+        self.gan_decoder = gan_decoder
+    
+    def enhance(self, low_res_image, diffusion_steps=2):
+        # Stage 1: Structure reconstruction with DM
+        coarse_features = self.diffusion.extract_features(low_res_image)
+        structure = self.diffusion.reverse_process(
+            coarse_features, 
+            steps=diffusion_steps
+        )
+        
+        # Stage 2: Detail enhancement with GAN
+        final_output = self.gan_decoder(structure)
+        return final_output
+
+    @torch.no_grad()
+    def inference(self, image):
+        return self.enhance(image, diffusion_steps=2)
