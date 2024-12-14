@@ -1,4 +1,8 @@
-# GPT2-Medium AI Explorer Integration
+### GPT2-Medium AI Explorer Integration
+- General-purpose text generation
+- Size: 345M parameters
+- RAM Required: 2GB
+- Setup: `pip install -r requirements.txt`
 
 ## Model Specifications
 - Name: GPT2-Medium
