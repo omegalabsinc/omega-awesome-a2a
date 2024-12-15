@@ -24,8 +24,18 @@ A curated list of state-of-the-art multimodal AI projects, papers, and implement
   - [Paper](https://arxiv.org/abs/2303.11381)
   - **Analysis**: MM-REACT advances multimodal AI by implementing sophisticated reasoning capabilities across different input types. Its framework demonstrates practical problem-solving approaches that combine perception with action, making it particularly relevant for developing AI systems that can understand and respond to complex real-world scenarios.
 
-## Contributing
-Please read the [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
+### Advanced Multimodal Agents
+- **CogAgent**
+  - [GitHub](https://github.com/THUDM/CogAgent)
+  - **Analysis**: CogAgent represents the next evolution in multimodal AI agents, combining visual understanding, planning, and execution capabilities in a single framework. Its ability to handle complex multi-step tasks while maintaining context makes it particularly valuable for real-world applications requiring sustained interaction and reasoning.
 
-## License
-MIT
+### Enterprise-Scale Models
+- **PaLI-X**
+  - [Paper](https://arxiv.org/abs/2305.18565)
+  - **Analysis**: Google's PaLI-X pushes the boundaries of multilingual multimodal processing by supporting 100+ languages and various visual tasks. Its scale and versatility make it a benchmark for enterprise-level multimodal systems, particularly in global applications requiring cross-lingual visual understanding.
+
+### Instruction-Based Models
+- **InstructBLIP**
+  - [Paper](https://arxiv.org/abs/2305.06500)
+  - **Analysis**: InstructBLIP advances the field by demonstrating superior instruction-following capabilities in vision-language tasks. The collaboration between Microsoft and Salesforce brings enterprise-level reliability to multimodal instruction tuning, making it particularly valuable for practical applications.
+
